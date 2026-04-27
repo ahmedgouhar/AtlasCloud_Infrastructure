@@ -3,8 +3,10 @@
 The project is live here 👉 d1jskvl1ulsdp8.cloudfront.net
 
 This project provisions a **full production-grade AWS infrastructure** using Terraform with a complete CI/CD pipeline.
-
-
+# 🏗️ Architecture Diagram
+<p align="center">
+  <img src="assets/architecture.png" width="900"/>
+</p>
 ---
 
 ## 🏗️ Architecture Overview
