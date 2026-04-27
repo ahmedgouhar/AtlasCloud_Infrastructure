@@ -10,10 +10,9 @@ jobs:
   terraform:
     name: Terraform Pipeline
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: .
+    
+    env:
+      working-directory: ./environments/prod # Path to your main.tf
 
     steps:
       - name: Checkout code
