@@ -1,114 +1,65 @@
-# AtlasCloud-Infrastructure
-# 🚀 Cleanora Cloud Portfolio
+# 🌍 Environments Configuration
 
-A professional cloud portfolio showcasing real-world projects built with AWS, Terraform, and CI/CD automation.
-
----
-
-## 🌍 Live Demo
-
-🚀 The project is live here
-👉 d1jskvl1ulsdp8.cloudfront.net
+This folder contains environment-specific Terraform variables.
 
 ---
 
-## 👩‍💻 About Me
+## 📁 Structure
 
-Aspiring Cloud Engineer with hands-on experience in building scalable and production-ready infrastructure using AWS and Infrastructure as Code (IaC).
-
----
-
-## 📂 Projects
-
-### 🔹 1. AWS Infrastructure with Terraform
-
-Designed and provisioned a complete AWS infrastructure using Terraform.
-
-**✔️ What I built:**
-
-* Custom VPC with public & private subnets
-* Internet Gateway & Route Tables
-* EC2 instances deployment
-* Security Groups configuration
-* Modular Terraform architecture
-* ALB
-* nat Gateway
-
-**💡 Key Value:**
-
-* Fully automated infrastructure
-* Reusable and scalable modules
-* Clean and production-style setup
+```
+envs/
+├── dev.tfvars
+├── staging.tfvars
+├── prod.tfvars
+```
 
 ---
 
-### 🔹 2. Static Website Deployment (S3 + CloudFront + CI/CD)
+## 🚀 How to Deploy per Environment
 
-Deployed a high-performance static website using AWS services with automated deployment.
-
-**✔️ What I built:**
-
-* S3 bucket for static hosting
-* CloudFront CDN for fast global delivery
-* HTTPS configuration (SSL)
-* CI/CD pipeline using GitHub Actions
-* Automatic deployment on every push
-
-**💡 Key Value:**
-
-* Real production workflow
-* Fast and secure delivery
-* Hands-free deployment
-
----
-
-## 🛠️ Tech Stack
-
-* Terraform
-* AWS (EC2, S3, CloudFront, VPC, IAM)
-* Git & GitHub
-* GitHub Actions
-
----
-
-## 🔄 CI/CD Pipeline
-
-GitHub → Build → Deploy to AWS (S3) → CloudFront Distribution 🚀
-
----
-
-## 📸 Architecture
-
-📌 (Add your architecture diagram or screenshots here)
-
----
-
-## 🚀 How to Run the Project
+### Dev
 
 ```bash
-git clone git@github.com:ahmedgouhar/cleanora-portfolio.git
-cd cleanora-portfolio
+terraform apply -var-file="envs/dev.tfvars"
+```
 
-terraform init
-terraform apply
-``
+### Staging
 
----
+```bash
+terraform apply -var-file="envs/staging.tfvars"
+```
 
-## 📌 Future Improvements
+### Production
 
-* Add monitoring with CloudWatch
-* Implement logging system
-* Improve security with IAM roles
-* Multi-environment setup (dev / staging / prod)
-
----
-
-## 📬 Contact
-
-* email   >waela8214@gmail.com
-* LinkedIn: (https://www.linkedin.com/in/ahmed-wael-abdelaziz-ahmed-gouhar-1a679a301/)
+```bash
+terraform apply -var-file="envs/prod.tfvars"
+```
 
 ---
 
-⭐ If you like this project, don't forget to star the repo!
+## ⚙️ Environment Strategy
+
+| Environment | Purpose                   |
+| ----------- | ------------------------- |
+| Dev         | Testing & development     |
+| Staging     | Pre-production validation |
+| Prod        | Live infrastructure       |
+
+---
+
+## 🔐 Best Practices
+
+* Never hardcode secrets
+* Use separate state files per environment
+* Enable approval gate for production
+* Use remote backend (S3 + DynamoDB)
+
+---
+
+## 🧠 Notes
+
+* Each environment may have different:
+
+  * instance sizes
+  * scaling limits
+  * CIDR ranges
